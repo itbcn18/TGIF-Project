@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../styles/bootstrap.min.css">
+	<link rel="stylesheet" href="../styles/styles.css">
+	<link rel="icon" href="../images/favicon.png" type="image/x-icon">
+	<title>TGIF Senate Attendance Statistics</title>
+</head>
+
+
+<body>
+
+	<div class="container">
+
+
+		<!--  Logo and Email  -->
+		<div class="row">
+
+			<div class="col-sm-4">
+				<a class="d-none d-sm-inline-block p-3" href="home.html">
+					<img class="img-responsive" src="../images/logo-tgif.png" alt="Logo">
+				</a>
+			</div>
+
+			<div class="col-sm-8 text-right">
+				<a class="d-sm-inline-block p-3 email" href="mailto:info@tgif.net" target="_top "> <img
+						class="mr-2 " src="../images/mail-icon.png" alt="TGIF Mail">info@tgif.net</a>
+			</div>
+
+		</div>
+
+
+		<!--  NAV BAR  -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="dropdown container-fluid">
+
+				<div class="navbar-header">
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="nav navbar-nav mr-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="home.html">Home <span
+									class="sr-only"></span></a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Congress 113
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="senate-data.html">Senate</a>
+								<a class="dropdown-item" href="house-data.html">House</a>
+							</div>
+						</li>
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+								href="#">Attendance</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item active"
+									href="senate-attendance-statistics.html">Senate</a>
+								<a class="dropdown-item" href="house-attendance-statistics.html">House</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"
+								href="#">Party Loyalty</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="senate-party-loyalty.html">Senate</a>
+								<a class="dropdown-item" href="house-party-loyalty.html">House</a>
+							</div>
+						</li>
+
+				</div>
+			</div>
+		</nav>
+
+
+		<!-- TABLE CONTAINER -->
+
+		<div class="container m-3 mt-5 mb-5 col-12">
+			<div class="row">
+				<div class="col-6">
+					<h2>Attendance</h2>
+					<p>The Constitution specifies that a majority of members constitutes a quorum to do business in each
+						house.
+						Representatives and senators rarely force the presence of a quorum by demanding quorum calls;
+						thus, in most
+						cases, debates continue even if a majority is not present.</p>
+
+					<p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator
+						stating
+						"aye"
+						or "no" when his or her name is announced. The House reserves roll-call votes for the most
+						formal matters,
+						as a roll-call of all 435 representatives takes quite some time; normally, members vote by
+						electronic
+						device. In the case of a tie, the motion in question fails. In the Senate, the Vice President
+						may (if
+						present) cast the tiebreaking vote.</p>
+				</div> <!-- Fin de col -->
+
+				<div class="col-6">
+					<h3>Senate at a glance</h3>
+					<table class="table">
+						<thead class="">
+							<tr class="text-center">
+								<th>Party</th>
+								<th>Number of Reps</th>
+								<th>% Voted with Party</th>
+							</tr>
+						</thead>
+						<tbody id="glanceTable" class="text-center">
+							<tr>
+								<td>Republicans</td>
+								<td id="numRepublicans"></td>
+								<td id="votesRepublicans"></td>
+							</tr>
+							<tr>
+								<td>Democrats</td>
+								<td id="numDemocrats"></td>
+								<td id="votesDemocrats"></td>
+							</tr>
+							<tr>
+								<td>Independents</td>
+								<td id="numIndependents"></td>
+								<td id="votesIndependents"></td>
+							</tr>
+							<tr>
+								<td>Total</td>
+								<td id="numTotal"></td>
+								<td id="votesTotal"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div> <!-- Fin de col -->
+			</div> <!-- Fin de row -->
+
+			<div class="row mt-3">
+				<div class="col-6">
+					<h3>Least Engaged (Bottom 10% Attendance)</h3>
+					<table class="table">
+						<thead class="">
+							<tr class="text-center">
+								<th>Name</th>
+								<th>Number of Missed Votes</th>
+								<th>% Missed</th>
+							</tr>
+						</thead>
+
+						<tbody id="leastEngagedData" class="text-center">
+
+						</tbody>
+
+					</table>
+				</div> <!-- Fin de col -->
+
+				<div class="col-6">
+					<h3>Most Engaged (Top 10% Attendance)</h3>
+					<table class="table">
+						<thead class="">
+							<tr class="text-center">
+								<th>Name</th>
+								<th>Number of Missed Votes</th>
+								<th>% Missed</th>
+							</tr>
+						</thead>
+
+						<tbody id="mostEngagedData" class="text-center">
+
+						</tbody>
+
+					</table>
+				</div> <!-- Fin de col -->
+			</div> <!-- Fin de row -->
+		</div> <!-- Fin Container -->
+
+		<footer class="page-footer bg-light font-small">
+			<div class="container-fluid text-center text-md-left">
+				<div class="footer-copyright text-center py-3">© 2019 Copyright: TGIF | All Rights Reserved</a>
+				</div>
+			</div>
+		</footer>
+
+	</div> <!-- Fin Container Padre-->
+
+
+
+	<!--  Bootstrap Scripts  (Antes que nuestros Scripts)  La difeerncia con un CDN es que el cdn está en la red, lo malo es si se llega a caer, la página se queda sin diseño -->
+	<script src="../js/jquery.slim.min.js"></script> <!--  Small version of Jquery Framework  -->
+	<script src="../js/poppers.min.js"></script> <!--  Útil para algunas features de Jquery  -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<!--  SCRIPTS  -->
+	<script src="../js/pro-congress-113-senate.js"></script>
+	<!-- <script src="../js/main.js"></script>  -->
+	<script src="../js/main-statistics.js"></script>
+
+</body>
+
+</html>

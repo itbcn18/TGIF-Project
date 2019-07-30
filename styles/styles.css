@@ -1,0 +1,148 @@
+/*  GENERAL  */
+.navbar-nav a, .footer-copyright{
+  font-family: "Source Sans Pro","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, p, td{
+  font-family: "Merriweather",serif;
+  color: #333;
+}
+h2{
+  text-transform: uppercase;
+  color: #3D3A70;
+}
+
+.container-space{
+    margin-top: 40px;
+}
+
+/*   NAVBAR   */
+
+  .navbar-light .navbar-nav .nav-link{
+  color: #3D3A70;
+  font-weight: bold;
+  }
+
+  .navbar-light .navbar-nav .nav-link:hover{
+    background-color: lightgrey;
+    color:  #3D3A70;
+  }
+
+  .navbar-nav li > a:focus {
+    background-color: lightgrey;
+  }
+
+.navbar-light .navbar-nav .nav-link.active{
+    color :#B71F34;
+    font-weight: bold;
+  }
+  .navbar-light .navbar-nav .show>.nav-link {
+    color: #3D3A70;
+  }
+  .dropdown-item{
+    color: #3D3A70;
+    font-weight: bold;
+  }
+  .dropdown-item:hover {
+    color: #3D3A70;
+  }
+  .dropdown-item:active {
+    color :#B71F34;
+    text-decoration: none;
+    background-color: #fff;
+  }
+  .dropdown-item.active {
+  color :#B71F34;
+  background-color: transparent;
+  }
+
+/* =================================   */
+
+a.email{
+  color: #3D3A70;
+  text-decoration: none;
+}
+
+
+/*  CONTENT, TABLES  */
+
+.badge-primary {  /*  Button */
+  color: #fff;
+  background-color: #3D3A70;
+}
+.badge-primary[href]:hover {
+  background-color: #3D3A70;
+}
+
+thead{
+  background-color: #3D3A70;
+}
+th{
+  color: white;
+}
+
+.table-color{
+  background-color: #B71F34;
+}
+  
+
+/*  Loading  */
+
+.content{
+  display: flex;
+  justify-content: center;
+  margin-top: 18em;
+}
+
+.loader{
+  position: relative;
+}
+
+.loader::before, .loader::after{
+  content: "";
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  border-radius: 4em;
+}
+
+.loader::before{
+  background-color: red;
+  left: 0;
+  transform: translateX(10px);
+  animation: Moveleft 1s ease infinite;
+}
+
+.loader::after{
+  background-color:black;
+  right:0;
+  transform: translateX(-10px);
+  animation: Moveright 1s ease infinite;
+}
+
+@keyframes Moveright{
+  0%{
+    transform: translateX(-10px);
+  }
+  50%{
+    transform: translateX(10px);
+    background-color:rgba(0, 0, 0, 0.521);
+  }
+  100%{
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes Moveleft{
+  0%{
+    transform: translateX(10px);
+  }
+  50%{
+    transform: translateX(-10px);
+    background-color: rgba(255, 0, 0, 0.486);
+  }
+  100%{
+    transform: translateX(10px);
+  }
+}
