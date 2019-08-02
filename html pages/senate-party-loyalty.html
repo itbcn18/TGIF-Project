@@ -22,13 +22,13 @@
 
             <div class="col-sm-4">
                 <a class="d-none d-sm-inline-block p-3" href="home.html">
-                    <img class="img-responsive" src="../images/logo-tgif.png" alt="Logo">
+                    <img class="img-responsive" src="../images/logo-tgif.png" alt="TGIF Logo">
                 </a>
             </div>
 
             <div class="col-sm-8 text-right">
-                <a class="d-sm-inline-block p-3 email" href="mailto:info@tgif.net" target="_top "> <img
-                        class="mr-2 " src="../images/mail-icon.png" alt="TGIF Mail">info@tgif.net</a>
+                <a class="d-sm-inline-block p-3 email" href="mailto:info@tgif.net" target="_top "> <img class="mr-2 "
+                        src="../images/mail-icon.png" alt="TGIF Mail">info@tgif.net</a>
             </div>
 
         </div>
@@ -49,9 +49,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="home.html">Home <span
-                                    class="sr-only"></span></a>
+                            <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,18 +64,18 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 href="#">Attendance</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item"
-                                    href="senate-attendance-statistics.html">Senate</a>
+                                <a class="dropdown-item" href="senate-attendance-statistics.html">Senate</a>
                                 <a class="dropdown-item" href="house-attendance-statistics.html">House</a>
                             </div>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"
                                 href="#">Party Loyalty</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item active" href="senate-party-loyalty.html">Senate</a>
@@ -91,6 +91,12 @@
         <!-- TABLE CONTAINER -->
 
         <div class="container m-3 mt-5 mb-5 col-12 ">
+
+            <!-- Loader -->
+            <div class="content">
+                <div id="load"></div> 
+            </div>
+
             <div class="row">
                 <div class="col-6">
                     <h2>Party Loyalty</h2>
@@ -109,6 +115,7 @@
                                 <th>% Voted with Party</th>
                             </tr>
                         </thead>
+
                         <tbody id="glanceTable" class="text-center">
                             <tr>
                                 <td>Republicans</td>
@@ -131,6 +138,7 @@
                                 <td id="votesTotal"></td>
                             </tr>
                         </tbody>
+
                     </table>
                 </div> <!-- Fin de col -->
             </div> <!-- Fin de row -->
@@ -146,9 +154,11 @@
                                 <th>% Party Votes</th>
                             </tr>
                         </thead>
+
                         <tbody id="leastLoyalData" class="text-center">
 
                         </tbody>
+
                     </table>
                 </div> <!-- Fin de col -->
 
@@ -162,14 +172,17 @@
                                 <th>% Party Votes</th>
                             </tr>
                         </thead>
+
                         <tbody id="mostLoyalData" class="text-center">
 
                         </tbody>
+
                     </table>
                 </div> <!-- Fin de col -->
             </div> <!-- Fin de row -->
         </div> <!-- Fin Container -->
 
+        <!-- Footer -->
         <footer class="page-footer bg-light font-small">
             <div class="container-fluid text-center text-md-left">
                 <div class="footer-copyright text-center py-3">© 2019 Copyright: TGIF | All Rights Reserved</a>
@@ -181,18 +194,16 @@
 
 
 
-
-
-    <!--  Bootstrap Scripts  (Antes que nuestros Scripts)  La difeerncia con un CDN es que el cdn está en la red, lo malo es si se llega a caer, la página se queda sin diseño -->
-    <script src="../js/jquery.slim.min.js"></script> <!--  Small version of Jquery Framework  -->
-    <script src="../js/poppers.min.js"></script> <!--  Útil para algunas features de Jquery  -->
+    <!--  Bootstrap Scripts  -->
+    <script src="../js/jquery.slim.min.js"></script> 
+    <script src="../js/poppers.min.js"></script> 
     <script src="../js/bootstrap.min.js"></script>
 
     <!--  SCRIPTS  -->
-    <script src="../js/pro-congress-113-senate.js"></script>
-    <!-- <script src="../js/main.js"></script> -->
-    <!-- <script src="../js/main-statistics.js"></script> -->
     <script src="../js/party-statistics.js"></script>
+    <!-- <script src="../js/pro-congress-113-senate.js"></script> -->
+    <!-- <script src="../js/main-statistics.js"></script> -->
+   
 
 </body>
 
