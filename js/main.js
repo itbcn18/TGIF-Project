@@ -1,12 +1,13 @@
-//  let dataArray = data.results[0].members;  Para tomar la data cuando está en "local"
+//  let dataArray = data.results[0].members;  Para tomar la data en "local"
 
 
-let dataArray = [];
+let dataArray = []; // Array donde va a ir la data del Json
 
 // Ver: https://www.todojs.com/api-fetch-el-nuevo-estandar-que-permite-hacer-llamadas-http/
 
-let chamber;
 // Para definir el tipo de miembro (página) en la que se va a trabajar
+let chamber;
+
 function typeOfMember() {
     if (window.location.href.includes("house")) { // Sintaxis para incluir en una url una palabra. Si existe dicha palabra, mostrará el contenido de esa página
         chamber = "house";
@@ -15,17 +16,14 @@ function typeOfMember() {
     }
 }
 typeOfMember();
-console.log(chamber);
+// console.log(chamber);
 
 
+/*  =========  FETCH DATA  =========  */
 function loadFetch() {
 
-
-
-
-
     // Call to Pro public data and request for house Json Data with a URL as a parameter
-    fetch('https://api.propublica.org/congress/v1/113/' + chamber + '/members.json', {
+    fetch('https://api.propublica.org/congress/v1/113/' + chamber + '/members.json', { // Fetch hace la "llamada"
         method: 'GET', // Es el valor por defecto en caso de no especificarse
         headers: { // Parámetro de fetch(), donde pasaremos un objeto con las opciones.
             'X-API-Key': 'lz8S2pOfIh62EqdjaEjfJ28Jm9ScVissRwaLieyP'
@@ -35,9 +33,9 @@ function loadFetch() {
         // El método then() de esa promesa nos entrega un objeto response
         // Este objeto contiene la respuesta que hace el servidor y dispone de una serie de propiedades con los valores de esa respuesta
         // El contenido del body no está disponible directamente en este objeto Response y tenemos que llamar uno de los métodos disponibles para que nos devuelva una promesa donde recibiremos el valor enviado por el servidor
-    }).then(function (response) {
+    }).then(function (response) { // Este primer "then" se ejecuta cuando el "Fetch" (la llamada) ha acabado
         if (response.ok) { // If response is "Ok" convert data to JSON format
-            return response.json();
+            return response.json(); // Devuelve la "response" convertida a json
         }
         throw new Error(response.statusText);
 
@@ -52,7 +50,7 @@ function loadFetch() {
         test();
         stateFilter(dataArray);
         populateStates(dataArray)
-       
+
 
         // Se incluye un "catch()" en caso de producirse un error.
         // Sólo si hay un error de red o de otro tipo se ejecutará el catch()
@@ -63,13 +61,15 @@ function loadFetch() {
 
     console.log(data);
 
-document.querySelector('tbody').style.display = 'none';
-document.getElementById('load').classList.add('loader');
+    /*  LOADER  */
+    /*  En conjunto con el CSS y HTML  */
+    document.querySelector('tbody').style.display = 'none';
+    document.getElementById('load').classList.add('loader');
 
-setTimeout(() =>{
-    document.getElementById('load').classList.remove('loader');
-    document.querySelector('tbody').style.display = 'block';
-},4000);
+    setTimeout(() => {
+        document.getElementById('load').classList.remove('loader');
+        document.querySelector('tbody').style.display = '';
+    }, 4000);
 
 }
 loadFetch();
@@ -93,7 +93,7 @@ function createTable(congress) { // Este parámetro representa al array "data" -
             tableRow.setAttribute("class", "table-color")
         }
 
-        // Crear un elemento
+        // Crear elementos que irán dentro de la fila ya creada
         let fullName = document.createElement("td");
         // Crear condition para que si en algún miembro existe un "middle_name" como "null" no imprimirlo
         if (congress[i].middle_name === null) { // Se le indica que del array, el elemento "middle_name" que indique "null", aplique tal cosa
@@ -132,7 +132,7 @@ for (let i = 0; i < checkboxes.length; i++) {
     checkboxes[i].addEventListener("click", test); // Se le agrega al nuevo array creado un evento, pasándole el evento y una function que es un listener, acá no se está llamando a la function, indica en donde está la function
 }
 
-
+// Dropdown Filter
 document.getElementById('stateSelector').addEventListener('change', test);
 
 
@@ -140,6 +140,7 @@ function test() {
 
     // console.log("Funciona", checkboxes);
 
+    // Array para meter todos los checkboxes existentes (saber cuántos checkboxes hay) con sus respectivos "values"
     let checkedCheckbox = [];
     for (let i = 0; i < checkboxes.length; i++) { // Recorrer sobre los 3 checkboxes
         if (checkboxes[i].checked) { // Condition de si está "checked" el checkbox, meterlo en el array vacío
@@ -148,8 +149,8 @@ function test() {
     }
     // console.log(checkedCheckbox);
 
-    // Filtrados por partido político
-    // Comparar los values con el Key "party" Si coinciden hacer el push
+    // Array Filtrados por partido político
+    // Comparar los values con el Key del value "party" del Json, si coinciden hacer el push
     let partyChecked = [];
     for (let j = 0; j < dataArray.length; j++) {
         if (checkedCheckbox.includes(dataArray[j].party)) { // ".includes" trabaja como una function
@@ -166,28 +167,37 @@ function test() {
         stateFilter(partyChecked); // corre la function del array de los miembros por partido específico
     }
 
-//     if(partyChecked[members] == 0 && arrayFiltrada[i] == 0){
-// alert("No Results");
-//     }
-
 }
 
 
-function stateFilter(array) {
+function stateFilter(array) { // Se le pasa la data, el array "dataArray" como parámetro
     let arrayFiltrada = [];
-    let currentState = document.getElementById('stateSelector').value;
+    let currentState = document.getElementById('stateSelector').value; // Toma el ID del elemento en el Html al que se le va a pasar un "value" del Json.
 
     for (let i = 0; i < array.length; i++) {
-        if (currentState == array[i].state || currentState == 'All') {
+        if (currentState == array[i].state || currentState == 'All') { // Si el "value" del json corresponde al "state" o al value "All" del html, llenar el "arrayFiltrada" con dichos valores
             arrayFiltrada.push(array[i]);
         }
     }
-    createTable(arrayFiltrada);
+    createTable(arrayFiltrada); // Se llama a la Function de "createTable" pasándole como parámetro la nueva array "arrayFiltrada" por "state"
+
+    // Checkear si no hay resultados una vez filtrado y mostrar mensaje
+    let checkDem = document.getElementById("checkDemocrat").checked;
+    let checkRep = document.getElementById("checkRepublican").checked;
+    let checkInd = document.getElementById("checkIndependent").checked;
+
+    if ((checkDem || checkRep || checkInd) && (arrayFiltrada.length == 0)) {
+
+        document.getElementById('results').style.display = 'block';
+    } else {
+
+        document.getElementById('results').style.display = 'none';
+    }
+
 }
 
 
 // DROPDOWN FILTER
-
 // Function para llenar el dropdown con todas las opciones
 function populateStates(dataArray) {
 

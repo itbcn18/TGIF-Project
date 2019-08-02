@@ -3,6 +3,9 @@
   font-family: "Source Sans Pro","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
   text-transform: uppercase;
 }
+/* body{
+  width: 400%vw;
+} */
 
 h1, h2, h3, p, td{
   font-family: "Merriweather",serif;
@@ -71,6 +74,11 @@ a.email{
   color: #fff;
   background-color: #3D3A70;
 }
+.badge-primary[href]:focus, .badge-primary[href]:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #3D3A70;
+}
 .badge-primary[href]:hover {
   background-color: #3D3A70;
 }
@@ -85,14 +93,16 @@ th{
 .table-color{
   background-color: #B71F34;
 }
-  
+
+#results{
+  font-weight: bold;
+}
 
 /*  Loading  */
 
 .content{
   display: flex;
   justify-content: center;
-  margin-top: 18em;
 }
 
 .loader{
@@ -108,14 +118,14 @@ th{
 }
 
 .loader::before{
-  background-color: red;
+  background-color: #B71F34;
   left: 0;
   transform: translateX(10px);
   animation: Moveleft 1s ease infinite;
 }
 
 .loader::after{
-  background-color:black;
+  background-color:#3D3A70;
   right:0;
   transform: translateX(-10px);
   animation: Moveright 1s ease infinite;
@@ -127,7 +137,7 @@ th{
   }
   50%{
     transform: translateX(10px);
-    background-color:rgba(0, 0, 0, 0.521);
+    background-color:rgba(61, 58, 112, 0.774);
   }
   100%{
     transform: translateX(-10px);
@@ -140,7 +150,7 @@ th{
   }
   50%{
     transform: translateX(-10px);
-    background-color: rgba(255, 0, 0, 0.486);
+    background-color: rgba(183, 31, 51, 0.774);
   }
   100%{
     transform: translateX(10px);
