@@ -59,9 +59,8 @@ function loadFetch() {
         console.log("Request Failed: " + error.message);
     });
 
-    console.log(data);
 
-    /*  LOADER  */
+    /* ==========  LOADER  ============ */
     /*  En conjunto con el CSS y HTML  */
     document.querySelector('tbody').style.display = 'none';
     document.getElementById('load').classList.add('loader');
@@ -122,7 +121,7 @@ function createTable(congress) { // Este parámetro representa al array "data" -
 
 }
 
-// CHECKBOX AND FILTERS
+/* ==========  CHECKBOXES AND FILTERS  ========== */
 
 // Se vincula los elementos (checkboxes) a través de clases y el dropdown a través de ID
 let checkboxes = document.getElementsByClassName("party-checkbox"); // Devuelve un Array de nodelist
@@ -220,3 +219,25 @@ function populateStates(dataArray) {
     }
 
 }
+
+// let collapsible = document.getElementById('read-more');
+
+// function readMore() {
+
+//     if (collapsible.setAttribute("aria-expanded", true)) {
+//         console.log("pizza");
+//         collapsible.style.display = 'none';
+//     } else {
+//         collapsible.style.display = 'block';
+//     }
+
+// }
+// readMore();
+
+let collapsible = document.getElementById('read-more');
+if(collapsible.innerText == "Read Less"){
+    console.log("pizza");
+    collapsible.innerText = "Read More"
+    }else {
+    collapsible.innerText = "Read less"
+    }

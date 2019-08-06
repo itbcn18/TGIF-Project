@@ -48,7 +48,7 @@ function loadFetch() {
         console.log("Request Failed: " + error.message);
     });
 
-    /*  LOADER  */
+    /* ======= LOADER ======= */
     document.querySelector('tbody').style.display = 'none';
     document.getElementById('load').classList.add('loader');
 

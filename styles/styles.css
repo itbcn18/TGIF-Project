@@ -1,11 +1,8 @@
-/*  GENERAL  */
+/* ========= GENERAL ========= */
 .navbar-nav a, .footer-copyright{
   font-family: "Source Sans Pro","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
   text-transform: uppercase;
 }
-/* body{
-  width: 400%vw;
-} */
 
 h1, h2, h3, p, td{
   font-family: "Merriweather",serif;
@@ -20,7 +17,7 @@ h2{
     margin-top: 40px;
 }
 
-/*   NAVBAR   */
+/* ========  NAVBAR  ======== */
 
   .navbar-light .navbar-nav .nav-link{
   color: #3D3A70;
@@ -68,7 +65,7 @@ a.email{
 }
 
 
-/*  CONTENT, TABLES  */
+/* ======== CONTENT, TABLES ========== */
 
 .badge-primary {  /*  Button */
   color: #fff;
